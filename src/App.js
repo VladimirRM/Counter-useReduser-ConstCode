@@ -2,9 +2,13 @@ import React,{useReducer} from 'react';
 import './App.css';
 
 function reducer (state,action){
-     return{
-      counter: 1
-     }
+ 
+  switch(action.type){
+    case 'increment':
+      return{
+        counter:state.counter + 1
+      }
+  }
 }
 
 function App() {
@@ -13,12 +17,17 @@ function App() {
   })
 
 const handlerClick =()=>{
-  
+    dispatch({
+      type:'increment',
+      payload:1
+
+    })
 }
 
 
   return (
     <div className="App">
+        <button onClick={handlerClick }> You push me {state.counter} times</button>
         <button onClick={handlerClick }> You push me {state.counter} times</button>
 
     </div>
