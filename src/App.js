@@ -1,45 +1,18 @@
 import React, { useReducer } from "react";
 import "./App.css";
+import reducer from "./reducer";
+import { increment,decrement } from "./actions";
 
-const DECREMENT = "decrement";
-const INCREMENT = "increment";
 
 // const increment = (payload) => ({
 //   type: INCREMENT,
 //   payload,
 // });
 
-const increment = payload =>{
-  return {
-    type:INCREMENT,
-    payload,
-  }
-}
-const decrement = payload =>{
-  return {
-    type:DECREMENT,
-    payload,
-  }
-
-}
 
 
-function reducer(state, action) {
-  switch (action.type) {
-    case INCREMENT:
-      return {
-        counter: state.counter + action.payload,
-      };
-    case DECREMENT:
-      return {
-        counter: state.counter - action.payload,
-      };
-      default:
-        return{
-          ...state
-        }
-  }
-}
+
+
 
 function App() {
   const [state, dispatch] = useReducer(reducer, {
