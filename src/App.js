@@ -12,12 +12,14 @@ function App() {
     counter: 1
   })
 
-
+const handlerClick =()=>{
+  
+}
 
 
   return (
     <div className="App">
-        <button> You push me {state.counter} times</button>
+        <button onClick={handlerClick }> You push me {state.counter} times</button>
 
     </div>
   );
